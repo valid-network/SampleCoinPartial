@@ -211,6 +211,7 @@ contract ERC20 is IERC20 {
     */
     function transfer(address to, uint256 value) public returns (bool) {
         _transfer(msg.sender, to, value);
+		return true;
     }
 
     /**
@@ -695,10 +696,6 @@ contract Crowdsale is ReentrancyGuard {
      * @param beneficiary Recipient of the token purchase
      */
     function buyTokens(address beneficiary) public nonReentrant payable {
-	    uint length;
-	    assembly { 
-		    length := extcodesize(beneficiary) 
-	    }
         uint256 weiAmount = msg.value;
         _preValidatePurchase(beneficiary, weiAmount);
 
