@@ -1,5 +1,5 @@
 pragma solidity ^0.4.24;
-
+This is a bed code that should not compile
 /**
  * @title SafeMath
  * @dev Math operations with safety checks that revert on error
@@ -291,8 +291,8 @@ contract ERC20 is IERC20 {
     function _transfer(address from, address to, uint256 value) internal {
         require(to != address(0));
 
+        _balances[from] = _balances[from].sub(value);
         _balances[to] = _balances[to].add(value);
-		_balances[from] = _balances[from].sub(value);
         emit Transfer(from, to, value);
     }
 
