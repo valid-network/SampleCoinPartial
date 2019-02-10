@@ -1,5 +1,4 @@
 pragma solidity ^0.4.24;
-This is a bed code that should not compile
 /**
  * @title SafeMath
  * @dev Math operations with safety checks that revert on error
@@ -378,9 +377,6 @@ contract ERC20Detailed is IERC20 {
      */
     function decimals() public view returns (uint8) {
         return _decimals;
-    }
-
-    function ecrecover() private view {
     }
 }
 
