@@ -317,7 +317,6 @@ contract ERC20 is IERC20 {
      * @param value The amount that will be burnt.
      */
     function _burn(address account, uint256 value) internal {
-        require (block.timestamp > 1000);
         require(account != address(0));
 
         _totalSupply = _totalSupply.sub(value);
