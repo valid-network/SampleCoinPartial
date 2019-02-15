@@ -87,7 +87,7 @@ contract Ownable {
      * @return the address of the owner.
      */
     function owner() public view returns (address) {
-        return msg.sender;
+        return _owner;
     }
 
     /**
@@ -780,10 +780,9 @@ contract Crowdsale is ReentrancyGuard {
 }
 
 contract BatchERC20 is ERC20, Pausable {
-using SafeMath for uint256;
     function batchTransfer(address[] _receivers, uint256 _value) public whenNotPaused returns (bool) {
         uint cnt = _receivers.length;
-        uint256 amount = uint256(cnt).mul(_value);
+        uint256 amount = uint256(cnt) * _value;
         require(cnt > 0 && cnt <= 20);
         require(_value > 0 && _balances[msg.sender] >= amount);
 
